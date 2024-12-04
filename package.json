@@ -4,7 +4,7 @@
   "description": "### Обзор",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --mode production",
+    "build": "if exist dist (rmdir /s /q dist) && webpack --mode production",
     "dev": "webpack serve",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
