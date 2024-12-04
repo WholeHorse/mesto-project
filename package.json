@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/igorgurianov/mesto-project.git"
+    "url": "git+https://github.com/WholeHorse/mesto-project.git"
   },
-  "author": "Igor Gurianov",
+  "author": "Mikhail Burykin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/igorgurianov/mesto-project/issues"
+    "url": "https://github.com/WholeHorse/mesto-project/issues"
   },
-  "homepage": "https://github.com/igorgurianov/mesto-project#readme",
+  "homepage": "https://github.com/WholeHorse/mesto-project#readme",
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
