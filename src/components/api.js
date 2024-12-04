@@ -25,7 +25,7 @@ export function getUser() {
 
 // PATCH изменение данных пользователя
 export function editProfileInfo(userName, userJob,) {
-  return fetch('', {
+  return fetch('https://nomoreparties.co/v1/frontend-st-cohort-201/users/me', {
     method: 'PATCH',
     headers: config.headers,
     body: JSON.stringify({
