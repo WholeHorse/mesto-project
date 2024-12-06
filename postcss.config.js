@@ -1,17 +1,12 @@
 // postcss.config.js
 
-// подключите плагины в файл
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
+// Подключение необходимых плагинов
+const autoprefixer = require('autoprefixer'); // Добавляет кроссбраузерные префиксы
+const cssnano = require('cssnano'); // Минифицирует CSS
 
 module.exports = {
-  // подключите плагины к PostCSS
   plugins: [
-    // подключите autoprefixer
-    autoprefixer,
-    // cssnano при подключении нужно передать объект опций
-    // { preset: default } говорит о том, что нужно использовать
-    // стандартные настройки минификации
-    cssnano({ preset: 'default' })
+    autoprefixer, // Автоматическое добавление префиксов
+    cssnano({ preset: 'default' }) // Минификация с использованием стандартных настроек
   ]
 };

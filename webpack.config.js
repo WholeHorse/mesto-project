@@ -1,57 +1,62 @@
-// указали в какой файл будет собираться весь js и дали ему имя
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // плагин для сборки HTML
-const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // плагин очистки папки dist
-const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // сборка css файлов в один
+// Подключение модулей и плагинов
+const path = require('path'); // Работа с путями
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // Генерация HTML
+const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // Очистка папки dist
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Вынос CSS в отдельный файл
 
 module.exports = {
+  // Точка входа в приложение
   entry: { main: './src/components/index.js' },
-  // указали в какой файл будет собираться весь js и дали ему имя
+
+  // Настройки выходного файла сборки
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
     publicPath: ''
   },
-  mode: 'development', // добавили режим разработчика
-  devServer: {
-    static: path.resolve(__dirname, './dist'), // путь, куда "смотрит" режим разработчика
-    compress: true, // это ускорит загрузку в режиме разработки
-    port: 8080, // порт, чтобы открывать сайт по адресу localhost:8080, но можно поменять порт
-    open: true // сайт будет открываться сам при запуске npm run dev
+
+  // Режим работы: development
+  mode: 'development',
+  devServer: { // Настройки сервера разработки
+    static: path.resolve(__dirname, './dist'), // Папка для статических файлов
+    compress: true,
+    port: 8080,
+    open: true
   },
+
+  // Правила обработки файлов
   module: {
-    rules: [ // rules — это массив правил, добавим в него объект правил для бабеля
+    rules: [
       {
-        test: /\.js$/, // регулярное выражение, которое ищет все js файлы
-        use: 'babel-loader', // при обработке этих файлов нужно использовать babel-loader
-        exclude: '/node_modules/' // исключает папку node_modules, файлы в ней обрабатывать не нужно
+        // Для всех JS-файлов
+        test: /\.js$/,
+        use: 'babel-loader', // Обработка Babel
+        exclude: '/node_modules/' // Исключение папки node_modules
       },
       {
-        // регулярное выражение, которое ищет все файлы с такими расширениями
+        // Для ресурсов (изображений, шрифтов и т.д.)
         test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
         type: 'asset/resource',
       },
       {
-        // применять это правило только к CSS-файлам
+        // Для CSS-файлов
         test: /\.css$/,
-        // при обработке этих файлов нужно использовать
-        // MiniCssExtractPlugin.loader и css-loader
-        use: [MiniCssExtractPlugin.loader, {
-          loader: 'css-loader',
-          options: { importLoaders: 1 }
+        use: [MiniCssExtractPlugin.loader, { // Извлечение CSS в файл
+          loader: 'css-loader', // Обработка @import и url()
+          options: { importLoaders: 1 } // Предварительная обработка перед css-loader
         },
-          'postcss-loader'
+          'postcss-loader' // Обработка PostCSS
         ]
       }
     ]
   },
+
+  // Подключение плагинов
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html' // путь к файлу index.html
+      template: './src/index.html' // Шаблон HTML-файла
     }),
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin() // подключение плагина для объединения файлов
+    new CleanWebpackPlugin(), // Очистка папки dist перед сборкой
+    new MiniCssExtractPlugin() // Вынос CSS в отдельные файлы
   ]
 }
-
-
