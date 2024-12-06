@@ -20,18 +20,18 @@ const btnOpenNewCardPopup = document.querySelector('.profile__add-button');
 const btnOpenAvatarPopup = document.querySelector('.profile__avatar-button');
 
 // Форма добавления карточки
-const formAddCard = document.querySelector('.popup__input-container_type_add'); // выбираем форму добавления карточки
+const formAddCard = document.querySelector('.popup__input-container_type_add');
 
 // Инпуты формы добавления карточки
-const cardName = document.querySelector('.popup__text-input_type_card-name'); // выбираем инпут для названия карточки
-const cardSrc = document.querySelector('.popup__text-input_type_link'); // выбираем инпут для линка картинки
+const cardName = document.querySelector('.popup__text-input_type_card-name');
+const cardSrc = document.querySelector('.popup__text-input_type_link');
 
 // Поля профиля пользователя
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__description');
 
 // Попап добавления карточки
-const popupNewCard = document.querySelector('.popup_type_add_card'); // для класса popup__opened
+const popupNewCard = document.querySelector('.popup_type_add_card');
 
 // Попап редактирования профиля
 const popupEditProfile = document.querySelector('.popup_type_edit-profile');
@@ -42,13 +42,13 @@ const jobInput = formEditProfile.querySelector('.popup__text-input_type_descript
 // Поля для изменения аватара
 const profileAvatar = document.querySelector('.profile__avatar');
 const popupEditAvatar = document.querySelector('.popup_type_edit-avatar');
-const formEditAvatar = document.querySelector('.popup__input-container_type_avatar'); // форма изменения аватара
-const avatarInput = formEditAvatar.querySelector('.popup__text-input_type_avatar'); // инпут аватара
+const formEditAvatar = document.querySelector('.popup__input-container_type_avatar');
+const avatarInput = formEditAvatar.querySelector('.popup__text-input_type_avatar');
 
 // Попап просмотра изображения
 const imagePopupForm = document.querySelector('.popup_type_image');
 const popupLabel = imagePopupForm.querySelector('.popup__label');
-const largeImage = document.querySelector('.popup__image'); // Большое изображение в попапе
+const largeImage = document.querySelector('.popup__image');
 
 // Настройки валидации
 const settings = {
