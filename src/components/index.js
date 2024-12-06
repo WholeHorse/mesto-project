@@ -5,7 +5,7 @@ import '../pages/index.css'
 import { createCard, renderCard } from './card.js';
 import { closePopup, openPopup } from './modal.js';
 import { enableValidation, toggleButtonState } from './validate.js';
-import { check, getCards, getUser, editProfileInfo, addNewCard, editAvatar } from './api.js'
+import { getCards, getUser, editProfileInfo, addCard, editAvatar } from './api.js'
 export { clickLargeImage, renderUserInfo, renderLoading, settings }
 
 // Закрытие попапов по оверлею
@@ -92,7 +92,7 @@ function clickLargeImage(cardSrcValue, cardNameValue) {
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   renderLoading(evt, 'Создание...');
-  addNewCard(cardName.value, cardSrc.value)
+  addCard(cardName.value, cardSrc.value)
     .then((card) => {
       renderCard(createCard(card, userData));
     })
